@@ -35,7 +35,7 @@ class ListBookView(LoginRequiredMixin, ListView):
 
     model = Book
 
-    paginate_by = ITEM_PER_PAGE    # 追加
+    paginate_by = ITEM_PER_PAGE
 
 
 
@@ -101,10 +101,6 @@ class CreateReviewView(LoginRequiredMixin, CreateView):
 
 
 
-
-
-
-
 class DetailBookView(LoginRequiredMixin, DetailView):
     template_name = 'book/book_detail.html'
 
@@ -137,8 +133,8 @@ class DeleteBookView(LoginRequiredMixin, DeleteView):
 
 
 
+    # 追加
     def get_object(self, queryset=None):
-            
         obj = super().get_object(queryset)
 
         if obj.user != self.request.user:
@@ -158,7 +154,6 @@ class UpdateBookView(LoginRequiredMixin, UpdateView):
 
 
     def get_object(self, queryset=None):
-            
         obj = super().get_object(queryset)
 
         if obj.user != self.request.user:

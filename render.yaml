@@ -1,15 +1,15 @@
 databases:
   - name: mysitedb
     plan: free
-    databaseName: 任意の名前
-    user: 任意の名前
+    databaseName: bookproject_db
+    user: bookproject_user
 
 
 
 services:
   - type: web
     plan: free
-    name: 任意の名前
+    name: bookproject-web
     runtime: python
     buildCommand: "./build.sh"
     startCommand: "python -m gunicorn bookproject.asgi:application -k uvicorn.workers.UvicornWorker"
